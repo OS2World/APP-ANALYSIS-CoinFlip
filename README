@@ -1,0 +1,75 @@
+*** ALL INFORMATION IN THIS FILE COME WITH ABSOLUTELY NO WARRANTY! ***
+
+'''coinflip 1.0''' is a console application that flips a coin.
+
+==Installation==
+To build coinflip, extract the coinflip-1.0.tar.gz:
+
+	tar -xvzf coinflip-1.0.tar.gz
+
+change into the coinflip-1.0 directory and enter:
+
+	make
+	
+You should now be able to run the program by entering
+	
+	./coinflip
+
+coinflip can be installed by commanding:
+
+	make install
+
+You need to have root permissions for the installation.
+If you aren't root, you can try
+
+	sudo make install
+	
+If that fails, you can install it manually. 
+Copy the program file into 
+a directory that is in your PATH. usually,
+you have to enter as root:
+
+	cp coinflip /usr/bin
+	
+To install the manpage, copy it into your manpath.
+Typically, you have to enter something like:
+	
+	cp coinflip.1 /usr/share/man/man1
+
+Enter
+
+	man man
+
+to learn how to install manpages on your system.
+
+You can remove coinflip by saying:
+
+	make uninstall
+	
+==Usage==
+There are no options, coinflip is neither interactive nor configurable.
+Just run
+
+	coinflip
+
+(1) stands for heads, (*) for tails.
+
+You can throw multiple coins with the help of your shell. For the 
+bash shell, you can enter 
+
+	for foo in $(seq 10); do coinflip; done
+
+to throw 10 coins; or:
+
+ for foo in $(seq 6); do coinflip; done | grep 1 | wc -l
+
+to count the number of tails in 6 flips, which is like throwing
+a dice with faces numbered from 0 to 5.
+
+==License==
+See LICENSE file.
+
+==Contact==
+conflip was developed by C. Becker, becker(at)mathematik.uni-marburg.de
+It was intended to be an exercise in withstanding featurism, thus,
+feature requests may not be heeded. 

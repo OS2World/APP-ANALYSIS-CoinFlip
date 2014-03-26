@@ -1,0 +1,24 @@
+OS/2-version of coinflip v1.0 at http://sourceforge.net.
+
+Minor adjustments, such as:
+
+ - No delay of about 1 second when at least 1 argument is specified,
+   for example "coinflip -once_fast"
+ - The errorlevel is set to the generated number, so for a backup of
+   your files about every 6 days this can be used instead of "grep":
+
+   /* Rexx, flips a coin every 3 days */
+   IF Date('B')//3=0 THEN DO 
+      '@coinflip.exe > NUL'
+      IF rc=1 THEN DO
+         SAY 'Please note it is possible that this lines will never execute!'
+         /* Insert your backup commands here */
+      END
+   END
+   EXIT
+
+Source and all original files included (coinflip-1.0.tar.gz). 
+
+coinflip flips a coin, prints the result to the screen and sets the
+errorlevel accordingly. Use any argument(s) to avoid the delay of
+1 second per coin flip.
